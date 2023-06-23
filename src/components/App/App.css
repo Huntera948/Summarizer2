@@ -1,0 +1,100 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin-top: 10vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  position: relative;
+  color: #fff;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("C:\Users\Alex\Documents\Coding\Summarizer2\client\src\assets\coral1.png");
+  background-size: cover;
+  z-index: -1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+}
+
+button,
+input,
+textarea {
+  margin: 10px;
+  width: 80%;
+}
+
+textarea {
+  height: 100px;
+  background-color: #ffffff00;
+  color: #fff;
+}
+
+.main-container {
+  backdrop-filter: brightness(0.5) blur(10px);
+  margin-top: 10vh;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 75vh;
+  border-radius: 20px;
+}
+
+button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
