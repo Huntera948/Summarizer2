@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$button--type: 'Roboto', sans-serif;
+
+@mixin h1--style {
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    font-weight: 300;
+}
+
+@mixin p--style {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}

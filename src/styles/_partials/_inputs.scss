@@ -1,0 +1,63 @@
+@import "variables";
+
+$input--height: 20px;
+$input--padding: 5px;
+$input--font-size: 16px;
+
+@mixin email--input {
+  display: block;
+  width: 100%;
+  height: $input--height;
+  padding: $input--padding;
+  font-size: $input--font-size;
+  color: $third--text--color;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: $border--radius;
+  transition: border-color 0.3s ease-in-out;
+
+  &:focus {
+    outline: none;
+    border-color: #66afe9;
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+@mixin password--input {
+  display: block;
+  width: 100%;
+  height: $input--height;
+  padding: $input--padding;
+  font-size: $input--font-size;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: $border--radius;
+  transition: border-color 0.3s ease-in-out;
+
+  &:focus {
+    outline: none;
+    border-color: #66afe9;
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &[type="password"] {
+    -webkit-text-security: disc;
+  }
+}

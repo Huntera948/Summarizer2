@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "./Login.css";
+import "./Login.scss";
+import Background from "../Background/Background";
 
 async function loginUser(credentials) {
   return fetch("http://localhost:8080/login", {
@@ -26,24 +27,32 @@ export default function Login({ setToken }) {
   };
 
   return (
-    <div className="login-wrapper">
-      <h1>Please Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={(e) => setUserName(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+    <div className="page--wrapper">
+      <div className="login--wrapper">
+        <h1>Welcome back</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <p>Email Address</p>
+            <input
+              className="email--input"
+              type="text"
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </label>
+          <label>
+            <p>Password</p>
+            <input
+              className="password--input"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+        <Background />
+      </div>
     </div>
   );
 }

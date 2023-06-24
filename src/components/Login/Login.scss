@@ -1,0 +1,51 @@
+@import "../../styles/_partials/_variables.scss";
+@import "../../styles/_partials/_buttons.scss";
+@import "../../styles/_partials/_inputs.scss";
+@import "../../styles/_partials/_typography.scss";
+
+.page--wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.login--wrapper {
+  margin-top: 25vh;
+  padding-bottom: 1vh;
+  background-color: $color-E;
+  border-radius: $border--radius;
+  width: 400px;
+}
+
+button {
+  @include submit--button;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.email--input {
+  @include email--input;
+}
+
+.password--input {
+  @include password--input;
+}
+
+h1 {
+  @include h1--style;
+  color: $primary-text-color;
+  text-align: center;
+  margin-top: 24px;
+}
+
+p {
+  @include p--style;
+  color: $primary-text-color;
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: -3px;
+  margin-left: -5px;
+}
+
+input {
+  margin-left: -5px;
+}
