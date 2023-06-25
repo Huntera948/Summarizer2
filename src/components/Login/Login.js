@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import "./Login.scss";
 import Background from "../Background/Background";
 import { ReactComponent as Icon } from "../../assets/icon2.svg";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 async function loginUser(credentials) {
   return fetch("http://localhost:8080/login", {
@@ -33,24 +35,26 @@ export default function Login({ setToken }) {
       <div className="login--wrapper">
         <h1>Welcome back</h1>
         <form onSubmit={handleSubmit}>
-          <label>
-            <p>Email Address</p>
-            <input
-              className="email--input"
-              type="text"
-              onChange={(e) => setUserName(e.target.value)}
-            />
-          </label>
-          <label>
-            <p>Password</p>
-            <input
-              className="password--input"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
+          <TextField
+            className="email--input"
+            id="outlined-basic"
+            label="Email Address"
+            variant="outlined"
+            onChange={(e) => setUserName(e.target.value)}
+          />
+          <br />
+          <TextField
+            id="outlined-password-input"
+            label="Password"
+            type="password"
+            autoComplete="current-password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <div>
-            <button type="submit">Submit</button>
+            <br />
+            <Button variant="contained">
+              Submit
+            </Button>
           </div>
         </form>
         <Background />

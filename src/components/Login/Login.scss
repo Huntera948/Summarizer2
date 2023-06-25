@@ -14,7 +14,7 @@
   $icon--size: 150px;
   width: $icon--size;
   height: $icon--size;
-  margin-bottom: 240px;
+  margin-bottom: 150px;
   margin-right: 0px;
 }
 
@@ -26,9 +26,9 @@
   width: 400px;
 }
 
-button {
+.submit--button {
   @include submit--button;
-  margin-top: 20px;
+  margin-top: 200px;
   margin-bottom: 20px;
 }
 
@@ -42,14 +42,14 @@ button {
 
 h1 {
   @include h1--style;
-  color: $primary-text-color;
+  color: $primary--text--color;
   text-align: center;
   margin-top: 24px;
 }
 
 p {
   @include p--style;
-  color: $primary-text-color;
+  color: $primary--text--color;
   text-align: left;
   margin-top: 15px;
   margin-bottom: -3px;

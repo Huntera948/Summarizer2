@@ -5,13 +5,7 @@ $input--padding: 5px;
 $input--font-size: 16px;
 
 @mixin email--input {
-  display: block;
-  width: 100%;
-  height: $input--height;
-  padding: $input--padding;
-  font-size: $input--font-size;
-  color: $third--text--color;
-  background-color: #fff;
+  color: $primary--text--color;
   border: 1px solid #ccc;
   border-radius: $border--radius;
   transition: border-color 0.3s ease-in-out;
