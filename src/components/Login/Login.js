@@ -52,7 +52,7 @@ export default function Login({ setToken }) {
           />
           <div>
             <br />
-            <Button variant="contained">
+            <Button variant="contained" type="submit">
               Submit
             </Button>
           </div>

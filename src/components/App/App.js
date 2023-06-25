@@ -6,6 +6,7 @@ import Login from "../Login/Login";
 import Preferences from "./Preferences/Preferences";
 import useToken from "./useToken";
 import Background from "../Background/Background";
+import Summarizer from "./Summarizer/Summarizer";
 import { ReactComponent as Icon } from "../../assets/icon2.svg";
 
 function App() {
@@ -17,13 +18,13 @@ function App() {
 
   return (
     <div className="wrapper">
-      <h1>Summarizer</h1>
       <BrowserRouter>
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/preferences" element={<Preferences />} />
         </Routes>
       </BrowserRouter>
+      <Summarizer />
       <Background />
     </div>
   );
