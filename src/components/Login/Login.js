@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./Login.scss";
 import Background from "../Background/Background";
+import { ReactComponent as Icon } from "../../assets/icon2.svg";
 
 async function loginUser(credentials) {
   return fetch("http://localhost:8080/login", {
@@ -28,6 +29,7 @@ export default function Login({ setToken }) {
 
   return (
     <div className="page--wrapper">
+      <Icon className="icon" />
       <div className="login--wrapper">
         <h1>Welcome back</h1>
         <form onSubmit={handleSubmit}>

@@ -6,6 +6,16 @@
 .page--wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  $icon--size: 150px;
+  width: $icon--size;
+  height: $icon--size;
+  margin-bottom: 240px;
+  margin-right: 0px;
 }
 
 .login--wrapper {
