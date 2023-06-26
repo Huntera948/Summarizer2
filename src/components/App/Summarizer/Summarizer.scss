@@ -1,0 +1,28 @@
+.icon {
+    position: relative;
+    $icon--size: 150px;
+    width: $icon--size;
+    height: $icon--size;
+    margin-right: 100px;
+    margin-left: 400px;
+  }
+
+.header {
+    margin-bottom: 0px;
+}
+
+.sub--header {
+    text-align: center;
+    font-weight: 300;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.summarizer--container {
+    width: 500px;
+}
+
+.go--button {
+    width: 100px;
+}

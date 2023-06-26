@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const NewsComponent = () => {
+const NewsComponent = ({ inputText }) => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
@@ -8,7 +8,7 @@ const NewsComponent = () => {
       try {
         const apiKey = "7f4aef6ed2754581be403ac2e5f45724";
         const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
+          `https://newsapi.org/v2/everything?q="${inputText}"&pageSize=10&apiKey=${apiKey}`
         );
         const data = await response.json();
         setNewsData(data.articles);
