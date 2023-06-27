@@ -1,10 +1,16 @@
+.page--container {
+    display: flex-center;
+}
+
 .icon {
+    justify-content: center;
+    align-items: center;
     position: relative;
     $icon--size: 150px;
     width: $icon--size;
     height: $icon--size;
-    margin-right: 100px;
-    margin-left: 400px;
+    border: 1px solid white;
+    margin-left: 30vw;
   }
 
 .header {
