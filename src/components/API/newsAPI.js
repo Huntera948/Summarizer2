@@ -8,7 +8,7 @@ const NewsComponent = ({ inputText }) => {
       try {
         const apiKey = "7f4aef6ed2754581be403ac2e5f45724";
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q="${inputText}"&pageSize=10&apiKey=${apiKey}`
+          `https://newsapi.org/v2/everything?q="${inputText}"&language=en&pageSize=10&apiKey=${apiKey}`
         );
         const data = await response.json();
         setNewsData(data.articles);
