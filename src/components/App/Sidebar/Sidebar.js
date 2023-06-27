@@ -108,11 +108,7 @@ export default function PersistentDrawerLeft() {
             onClick={handleDrawerClose}
             sx={{ marginLeft: "auto", width: "40px" }}
           >
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
+            <ChevronLeftIcon />
           </IconButton>
         </DrawerHeader>
         <Divider />

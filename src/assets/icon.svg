@@ -1,8 +1,16 @@
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="300.000000pt" height="300.000000pt" viewBox="0 0 300.000000 300.000000"
- preserveAspectRatio="xMidYMid meet">
-<g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
-fill="#30E7FF" stroke="none">
+<svg 
+version="1.0"
+xmlns="http://www.w3.org/2000/svg"
+width="300.000000pt"
+height="300.000000pt"
+viewBox="0 0 300.000000 300.000000"
+preserveAspectRatio="xMidYMid meet"
+>
+<g
+transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)"
+fill="#30E7FF"
+stroke="none"
+>
 <path d="M970 2143 c-22 -20 -33 -40 -37 -68 -6 -46 -5 -47 166 -280 107 -146
 148 -216 176 -302 30 -91 -21 -131 -65 -50 -55 99 -133 199 -167 214 -70 29
 -133 -18 -133 -99 0 -38 5 -46 52 -88 97 -84 136 -128 175 -197 36 -64 38 -73

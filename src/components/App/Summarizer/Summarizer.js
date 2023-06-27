@@ -21,8 +21,6 @@ function Summarizer() {
   return (
     <div className="page--container">
       <Sidebar />
-      <Icon className="icon" />
-      <br />
       <h1 className="header">Summarizer</h1>
       <h2 className="sub--header">Summarize today's news about...</h2>
       <form className="summarizer--container">
@@ -37,6 +35,7 @@ function Summarizer() {
           Go!
         </Button>
         {showNewsComponent && <NewsComponent inputText={inputText} />}
+        <Icon className="icon" />
       </form>
     </div>
   );
