@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import FormLabel from "@mui/material/FormLabel";
+import FormControl from "@mui/material/FormControl";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 
 export default function SearchIn() {
   const [state, setState] = React.useState({
@@ -24,9 +24,11 @@ export default function SearchIn() {
   const error = [title, description, content].filter((v) => v).length !== 2;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
-        <FormLabel component="legend">Search In:</FormLabel>
+        <FormLabel component="legend" sx={{ textAlign: "left" }}>
+          Search In:
+        </FormLabel>
         <FormGroup>
           <FormControlLabel
             control={
@@ -36,13 +38,21 @@ export default function SearchIn() {
           />
           <FormControlLabel
             control={
-              <Checkbox checked={description} onChange={handleChange} name="description" />
+              <Checkbox
+                checked={description}
+                onChange={handleChange}
+                name="description"
+              />
             }
-            label="Description"description
+            label="Description"
           />
           <FormControlLabel
             control={
-              <Checkbox checked={content} onChange={handleChange} name="content" />
+              <Checkbox
+                checked={content}
+                onChange={handleChange}
+                name="content"
+              />
             }
             label="Content"
           />

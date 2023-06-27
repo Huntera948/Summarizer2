@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Sidebar from "../Sidebar/Sidebar";
 import "./Summarizer.scss";
-import { ReactComponent as Icon } from "../../../assets/icon2.svg";
+import { ReactComponent as Icon } from "../../../assets/icon.svg";
 
 function Summarizer() {
   const [showNewsComponent, setShowNewsComponent] = useState(false);

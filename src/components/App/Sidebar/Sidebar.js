@@ -1,5 +1,6 @@
 import * as React from "react";
 import SearchIn from "./Sidebar-Components/SearchIn";
+import CountrySelect from "./Sidebar-Components/CountrySelect";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -11,7 +12,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-const drawerWidth = 240;
+const drawerWidth = 310;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -90,6 +91,7 @@ export default function PersistentDrawerLeft() {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
+            backgroundColor: "#4AC3E8",
           },
         }}
         variant="persistent"
@@ -106,8 +108,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <SearchIn />
-        <Divider />
-        {"put shit here"}
+        <CountrySelect />
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
