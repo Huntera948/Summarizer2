@@ -1,5 +1,5 @@
 const apiKey = "pub_2529453bb1703552da9694fe294be8dd033c3";
-const searchTerm = "pizza";
+const searchTerm = "Canada Fire";
 
 const getNewsData = () => {
   return fetch(

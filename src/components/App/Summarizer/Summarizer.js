@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import NewsComponent from "../../API/newsAPI";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Sidebar from "../Sidebar/Sidebar";
@@ -31,10 +30,13 @@ function Summarizer() {
           onChange={handleInputChange} // Call handleInputChange on every change
         />
         <br />
-        <Button className="go--button" onClick={toggleNewsComponent} variant="contained">
+        <Button
+          className="go--button"
+          onClick={toggleNewsComponent}
+          variant="contained"
+        >
           Go!
         </Button>
-        {showNewsComponent && <NewsComponent inputText={inputText} />}
         <Icon className="icon" />
       </form>
     </div>

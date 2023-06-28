@@ -3,7 +3,8 @@ const axios = require("axios");
 require("dotenv").config();
 
 // Define your OpenAI API credentials
-const apiKey = process.env.OPENAI_API_KEY;
+//const apiKey = process.env.OPENAI_API_KEY;
+const apiKey = "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";
 
 // Define the function to summarize a news article
 async function summarizeArticle(articleText) {
