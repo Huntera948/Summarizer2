@@ -1,0 +1,4 @@
+Invoke-WebRequest -Method GET -UseBasicParsing "https://api.worldnewsapi.com/search-news?api-key=4600c5631cd447fcb76470b113b20c66&text=bitcoin"
+Invoke-WebRequest -Method GET -UseBasicParsing "https://api.worldnewsapi.com/extract-news&api-key=4600c5631cd447fcb76470b113b20c66&text=bitcoin"
+
+Invoke-WebRequest -Method GET -UseBasicParsing "https://newsdata.io/api/1/news?apikey=pub_2529453bb1703552da9694fe294be8dd033c3&q=pizza"
