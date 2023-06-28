@@ -1,8 +1,9 @@
-// Install axios package if not already installed: npm install axios
+// Install axios and dotenv packages if not already installed: npm install axios dotenv
 const axios = require("axios");
+require("dotenv").config();
 
 // Define your OpenAI API credentials
-const apiKey = "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";
+const apiKey = process.env.OPENAI_API_KEY;
 
 // Define the function to summarize a news article
 async function summarizeArticle(articleText) {
@@ -11,9 +12,9 @@ async function summarizeArticle(articleText) {
     const response = await axios.post(
       "https://api.openai.com/v1/engines/text-davinci-003/completions",
       {
-        prompt: `Summarize the following news article:\n\n${articleText}`,
+        prompt: `Summarize this news article in 5 sentences or less. Include Date Published, Author, Headline and link on the first line:\n\n${articleText}`,
         max_tokens: 1000, // Adjust the summary length as per your preference
-        temperature: 0.3, // Adjust the temperature parameter for varied output
+        temperature: 0, // Adjust the temperature parameter for varied output
         n: 1, // Generate a single response
         stop: "\n\n", // Stop the summary at the first double newline character
       },
