@@ -1,7 +1,6 @@
 const apiKey = "pub_2529453bb1703552da9694fe294be8dd033c3";
-const searchTerm = "";
 
-const getNewsData = () => {
+const getNewsData = (searchTerm) => {
   return fetch(
     `https://newsdata.io/api/1/news?apikey=${apiKey}&q=${searchTerm}&language=en`
   )
