@@ -1,5 +1,5 @@
 const apiKey = "pub_2529453bb1703552da9694fe294be8dd033c3";
-const searchTerm = "pizza";
+const searchTerm = "";
 
 const getNewsData = () => {
   return fetch(
@@ -7,21 +7,26 @@ const getNewsData = () => {
   )
     .then((response) => response.json())
     .then((data) => {
-      const posts = data.results; // Assuming the array of posts is available under the 'results' property
-      const postArray = []; // Array to store the objects
+      const articles = data.results; // Assuming the array of articles is available under the 'results' property
+      const articleArray = []; // Array to store the objects
 
-      posts.forEach((post) => {
-        const postObject = {
-          pubDate: post.pubDate,
-          title: post.title,
-          link: post.link,
-          content: post.content,
+      articles.forEach((article) => {
+        const articleObject = {
+          pubDate: article.pubDate,
+          title: article.title,
+          link: article.link,
+          content: article.content,
+          creator: article.creator,
+          keywords: article.keywords,
+          country: article.country,
+          category: article.category,
+          source_id: article.source_id,
         };
 
-        postArray.push(postObject); // Add the object to the array
+        articleArray.push(articleObject); // Add the object to the array
       });
 
-      return postArray; // Return the array of objects
+      return articleArray; // Return the array of objects
     })
     .catch((error) => {
       console.error("Error fetching news data:", error);
