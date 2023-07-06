@@ -1,10 +1,12 @@
+const insertArticles = require("./mongodb"); // import mongoDB.js
+
 const apiKey = "pub_2529453bb1703552da9694fe294be8dd033c3";
 const domains = [
-  "bbc,billboard,cnet,cbsnews,futurism",
-  "gizmodo,forbes,ibtimes,nasa,npr",
-  "nytimes,pcgamer,propublica,reutersagency,techcrunch",
-  "theverge,time,thurrott,universetoday,wired",
-  "wsj,yahoo",
+  ["bbc", "billboard", "cnet", "cbsnews", "futurism"],
+  ["gizmodo", "forbes", "ibtimes", "nasa", "npr"],
+  ["nytimes", "pcgamer", "propublica", "reutersagency", "techcrunch"],
+  ["theverge", "time", "thurrott", "universetoday", "wired"],
+  ["wsj", "yahoo"],
 ];
 
 const getNewsData = () => {
@@ -14,7 +16,10 @@ const getNewsData = () => {
     return fetch(url)
       .then((response) => response.json())
       .then((data) => {
+        console.log("Data:", data); // Add this line to inspect the data structure
+
         const articles = data.results;
+        console.log("Articles:", articles); // Add this line to inspect the articles array
 
         articles.forEach((article) => {
           if (article.content !== null && article.content.length >= 1000) {
@@ -36,9 +41,18 @@ const getNewsData = () => {
 
         const nextPage = data.nextPage;
         if (nextPage) {
-          const nextPageUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&page=${nextPage}`;
+          const nextPageUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&domain=${domains[0].join(
+            ","
+          )}&page=${nextPage}`;
           return fetchNewsData(nextPageUrl);
+        } else if (domains.length > 1) {
+          domains.shift(); // Remove the first set of domains
+          const newUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&domain=${domains[0].join(
+            ","
+          )}`;
+          return fetchNewsData(newUrl);
         } else {
+          insertArticles(articleArray); // Insert articles into the database
           return articleArray;
         }
       })
@@ -47,7 +61,9 @@ const getNewsData = () => {
       });
   };
 
-  const initialUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&domain=${domains[0]}`;
+  const initialUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&domain=${domains[0].join(
+    ","
+  )}`;
   return fetchNewsData(initialUrl)
     .then((results) => {
       console.log(results);
