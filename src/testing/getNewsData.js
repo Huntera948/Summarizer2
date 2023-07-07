@@ -1,4 +1,4 @@
-const insertArticles = require("./mongodb"); // import mongoDB.js
+const insertArticles = require("./insertArticles2DB"); // import mongoDB.js
 
 const apiKey = "pub_2529453bb1703552da9694fe294be8dd033c3";
 const domains = [

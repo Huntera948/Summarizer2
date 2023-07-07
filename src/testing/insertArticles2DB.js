@@ -1,13 +1,8 @@
 const { MongoClient } = require("mongodb");
 
-// Connection URI
-const uri = "mongodb://127.0.0.1:27017/"; // Replace with your MongoDB connection URI
-
-// Database Name
-const dbName = "newsdata"; // Replace with your database name
-
-// Collection Name
-const collectionName = "articledata"; // Replace with your collection name
+const uri = "mongodb://127.0.0.1:27017/";
+const dbName = "newsdata";
+const collectionName = "articledata";
 
 // Create a new MongoClient
 const client = new MongoClient(uri);
