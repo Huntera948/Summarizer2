@@ -12,13 +12,13 @@ const ranks = {
   futurism: 7,
   gizmodo: 7,
   forbes: 8,
-  ibtimes: 7,
+  ibtimes: 8,
   nasa: 7,
   npr: 9,
   nytimes: 10,
   pcgamer: 8,
   propublica: 10,
-  reutersagency: 7,
+  reutersagency: 9,
   techcrunch: 9,
   theverge: 7,
   time: 9,
@@ -62,6 +62,7 @@ async function updateArticlesWithRank() {
 
       count++;
       console.log("Processed:", count, "articles");
+      console.log("Rank assigned:", rank);
     }
 
     console.log("Rank data points added to articles.");

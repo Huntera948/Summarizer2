@@ -20,7 +20,7 @@ const insertArticles = async (articles) => {
     // Insert each article into the collection
     await collection.insertMany(articles);
 
-    console.log("Articles inserted successfully.");
+    console.log("Articles inserted into MongoDB database successfully.");
   } catch (error) {
     console.error("Error inserting articles:", error);
   } finally {
