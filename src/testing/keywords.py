@@ -10,7 +10,7 @@ keywords = {
     'gaming': ['game release', 'game review', 'gaming industry', 'gaming', 'esports', 'video game'],
     'health': ['cardiovascular', 'disease', 'health', 'healthcare', 'heart', 'medical breakthrough', 'medical research', 'medicine', 'mental health', 'nutrition', 'public health', 'wellness'],
     'investing': ['investing', 'stocks', 'bonds', 'investment strateg', 'portfolio management', 'financial market', 'dividend'],
-    'music': ['album', 'artist', 'band', 'concert', 'music festival', 'final tour', 'genre', 'hit single', 'music', 'music industry', 'musician', 'primiere', 'record industry', 'singer-songwriter', 'song', 'spotify'],
+    'music': ['album', 'artist', 'band', 'concert', 'music festival', 'final tour', 'genre', 'hit single', 'music', 'music industry', 'musician', 'premiere', 'record industry', 'singer-songwriter', 'song', 'spotify'],
     'opinion': ['commentary', 'editorial', 'guest column', 'op-ed', 'opinion piece', 'perspective', 'thought piece', 'viewpoint'],
     'politics': ['administration', 'biden', 'democracy', 'election', 'federal', 'government', 'legislation', 'political analysis', 'political debate', 'political', 'political part', 'politician', 'policy', 'president', 'social security', 'supreme court', 'trump', 'white house'],
     'programming': ['app development', 'coding', 'programming language', 'programming', 'python', 'software development', 'web development'],
