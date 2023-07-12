@@ -10,7 +10,11 @@ keywords = {
     'gaming': ['console gam', 'game release', 'game review', 'gaming industry', 'gaming', 'esports', 'monitors', ' pc ', 'playstation', 'ps5', 'razer', ' rgb ', 'sony', 'video game'],
     'health': ['cardiovascular', 'disease', 'health', 'healthcare', 'heart', 'medical breakthrough', 'medical research', 'medicine', 'mental health', 'nutrition', 'public health', 'wellness'],
     'investing': ['investing', 'stocks', 'bonds', 'investment strateg', 'portfolio management', 'financial market', 'dividend'],
+<<<<<<< HEAD
     'music': ['album', 'artist', 'band', 'concert', 'music festival', 'final tour', 'genre', 'hit single', 'k-pop', 'music', 'music industry', 'musician', 'primiere', 'record industry', 'singer-songwriter', 'song', 'spotify'],
+=======
+    'music': ['album', 'artist', 'band', 'concert', 'music festival', 'final tour', 'genre', 'hit single', 'music', 'music industry', 'musician', 'premiere', 'record industry', 'singer-songwriter', 'song', 'spotify'],
+>>>>>>> fdc1065263ddb39a1747ddde0a1b25ced6bd7468
     'opinion': ['commentary', 'editorial', 'guest column', 'op-ed', 'opinion piece', 'perspective', 'thought piece', 'viewpoint'],
     'politics': ['administration', 'biden', 'democracy', 'election', 'federal', 'government', 'legislation', 'political analysis', 'political debate', 'political', 'political part', 'politician', 'policy', 'president', 'social security', 'supreme court', 'trump', 'white house'],
     'programming': ['app development', 'coding', 'c++', 'css', 'html', 'java', 'javascript', 'php', 'programming', 'programming language', 'python', 'react.js', 'ruby', 'software development', 'web development'],
