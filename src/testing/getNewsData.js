@@ -1,4 +1,5 @@
-const insertArticles = require("./insertArticles2DB"); // import mongoDB.js
+const insertArticles = require("./insertArticles2DB");
+const cleanText_ibtimes = require("./text_cleanup_ibtimes");
 
 const apiKey = "pub_2529453bb1703552da9694fe294be8dd033c3";
 const domains = [
@@ -16,13 +17,24 @@ const getNewsData = () => {
     return fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log("Data:", data); // Add this line to inspect the data structure
+        //console.log("Data:", data); // Inspect the data structure
 
         const articles = data.results;
-        console.log("Articles:", articles); // Add this line to inspect the articles array
+        //console.log("Articles:", articles); // Inspect the articles array
 
         articles.forEach((article) => {
-          if (article.content !== null && article.content.length >= 1000) {
+          if (
+            article.content !== null &&
+            article.content.length >= 1000 &&
+            //(article.country === "united states of america" ||
+            //article.country === "united kingdom") &&
+            article.language === "english"
+          ) {
+            // If source_id is "ibtimes", clean the article content
+            if (article.source_id === "ibtimes") {
+              article.content = cleanText_ibtimes(article.content);
+            }
+
             const articleObject = {
               pubDate: article.pubDate,
               title: article.title,
@@ -33,6 +45,8 @@ const getNewsData = () => {
               country: article.country,
               category: article.category,
               source_id: article.source_id,
+              language: article.language,
+              description: article.description,
             };
 
             articleArray.push(articleObject);
@@ -46,13 +60,17 @@ const getNewsData = () => {
           )}&page=${nextPage}`;
           return fetchNewsData(nextPageUrl);
         } else if (domains.length > 1) {
-          domains.shift(); // Remove the first set of domains
+          domains.shift(); // Remove the first set of domains from the API call
           const newUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&domain=${domains[0].join(
             ","
           )}`;
           return fetchNewsData(newUrl);
         } else {
-          insertArticles(articleArray); // Insert articles into the database
+          if (articleArray.length === 0) {
+            console.log("No articles to insert");
+          } else {
+            insertArticles(articleArray); // Insert articles into the database
+          }
           return articleArray;
         }
       })

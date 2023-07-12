@@ -11,7 +11,7 @@ function cleanText(text) {
   console.log("Original text:", text);
 
   text = text.replace(/NEWSLETTER SIGNUP*?KEY POINTS/, "");
-  text = text.replace(/NEWSLETTER SIGNUP*?Reddit Share on/, "");
+  text = text.replace(/NEWSLETTER SIGNUP.*Share on Flipboard/, "");
   text = text.replace(/REGISTER FOR FREE[\s\S]*?All Rights Reserved\./, "");
   text = text.replace(/pic\.twitter\.com\/\w+/g, "");
   text = text.replace(/ABOUT About Us.*$/, "");

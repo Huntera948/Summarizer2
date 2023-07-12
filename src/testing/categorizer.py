@@ -46,11 +46,31 @@ articles = collection.find()
 for article in articles:
     article_content = article['content']
     category, keyword_rankings, confidence_scores = classify_category(article_content)
+
+    # Adjust the confidence score for the "music" category if the publication is Billboard
+    if article.get('source_id') == 'billboard':
+        confidence_scores['music'] += 0.2
+
+    if article.get('source_id') == 'pcgamer':
+        confidence_scores['gaming'] += 0.2
+
+    if article.get('source_id') == 'forbes':
+        for category_key in ['business', 'economy', 'investing']:
+            confidence_scores[category_key] += 0.1  # Increase the confidence score by 0.1
+
+    # Check if the country is "india" and assign the category "world"
+    if article.get('country') == 'india':
+        category = 'world'
+        confidence_scores['world'] += 1.0  # You can adjust this value as needed
+
+    # Now, update the category to the one with the highest confidence score
+    category = max(confidence_scores, key=confidence_scores.get)
+
     collection.update_one(
         {'_id': article['_id']},
         {'$set': {'category': category, 'keyword_rankings': keyword_rankings, 'confidence_scores': confidence_scores}}
     )
-    print(f"Updated category, confidence scores, and keyword rankings for article with ID: {article['_id']}. Category: {category}, Confidence Scores: {confidence_scores}")
+    print(f"Updated article data for ID: {article['_id']}. Category: {category}")
 
 # Close the MongoDB connection
 client.close()

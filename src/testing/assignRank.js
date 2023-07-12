@@ -12,7 +12,7 @@ const ranks = {
   futurism: 7,
   gizmodo: 7,
   forbes: 8,
-  ibtimes: 8,
+  ibtimes: 6,
   nasa: 7,
   npr: 9,
   nytimes: 10,
