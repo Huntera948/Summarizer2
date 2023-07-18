@@ -10,27 +10,24 @@ const domains = [
   ["wsj", "yahoo"],
 ];
 
-const getNewsData = () => {
+const getNewsData = async () => {
+  // Made it async
   const articleArray = [];
 
-  const fetchNewsData = (url) => {
+  const fetchNewsData = async (url) => {
+    // Made it async
     return fetch(url)
       .then((response) => response.json())
-      .then((data) => {
-        //console.log("Data:", data); // Inspect the data structure
-
+      .then(async (data) => {
+        // Made it async
         const articles = data.results;
-        //console.log("Articles:", articles); // Inspect the articles array
 
         articles.forEach((article) => {
           if (
             article.content !== null &&
             article.content.length >= 1000 &&
-            //(article.country === "united states of america" ||
-            //article.country === "united kingdom") &&
             article.language === "english"
           ) {
-            // If source_id is "ibtimes", clean the article content
             if (article.source_id === "ibtimes") {
               article.content = cleanText_ibtimes(article.content);
             }
@@ -60,7 +57,7 @@ const getNewsData = () => {
           )}&page=${nextPage}`;
           return fetchNewsData(nextPageUrl);
         } else if (domains.length > 1) {
-          domains.shift(); // Remove the first set of domains from the API call
+          domains.shift();
           const newUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&domain=${domains[0].join(
             ","
           )}`;
@@ -69,7 +66,7 @@ const getNewsData = () => {
           if (articleArray.length === 0) {
             console.log("No articles to insert");
           } else {
-            insertArticles(articleArray); // Insert articles into the database
+            await insertArticles(articleArray); // Awaits for insertArticles to finish
           }
           return articleArray;
         }

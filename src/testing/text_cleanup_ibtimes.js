@@ -1,6 +1,6 @@
 const re = require("re");
 
-export default function cleanText_ibtimes(text) {
+function cleanText_ibtimes(text) {
   // Remove unwanted text at the beginning
   text = text.replace(/^[\s\S]*?NEWSLETTER SIGNUP.*?KEY POINTS/, "");
   text = text.replace(/REGISTER FOR FREE[\s\S]*?All Rights Reserved\./, "");
@@ -11,3 +11,5 @@ export default function cleanText_ibtimes(text) {
   text = text.replace(/\s+/g, " ").trim();
   return text;
 }
+
+module.exports = cleanText_ibtimes;

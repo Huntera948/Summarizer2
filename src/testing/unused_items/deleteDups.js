@@ -49,7 +49,7 @@ async function connectToMongoDB() {
       const duplicateIds = duplicateSet.duplicateIds;
 
       // Sort the duplicate document IDs in ascending order
-      const sortedDuplicateIds = duplicateIds.sort();
+      const sortedDuplicateIds = duplicateIds.sort((a, b) => a - b);
 
       // Keep the first document ID as the original and remove the rest
       const originalId = sortedDuplicateIds[0];

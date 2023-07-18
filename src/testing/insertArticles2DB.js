@@ -18,9 +18,18 @@ const insertArticles = async (articles) => {
     const collection = db.collection(collectionName);
 
     // Insert each article into the collection
-    await collection.insertMany(articles);
+    for (let article of articles) {
+      // Check if an article with the same link exists
+      const existingArticle = await collection.findOne({ link: article.link });
 
-    console.log("Articles inserted into MongoDB database successfully.");
+      if (!existingArticle) {
+        // Insert the article into the collection
+        await collection.insertOne(article);
+        console.log(`Inserted article: ${article.title}`);
+      } else {
+        console.log(`Article already exists: ${article.title}`);
+      }
+    }
   } catch (error) {
     console.error("Error inserting articles:", error);
   } finally {

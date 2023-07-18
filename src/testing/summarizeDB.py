@@ -17,20 +17,20 @@ def summarize_text(text):
     outputs = model.generate(inputs, max_length=150, min_length=40, length_penalty=2.0, num_beams=4, early_stopping=True)
     return tokenizer.decode(outputs[0], skip_special_tokens=True)  # skip special tokens during decoding
 
-# Fetch and process articles
 def fetch_and_process_articles():
     client = MongoClient('127.0.0.1', 27017)
     db = client['newsdata']
     collection = db['articledata']
     
-    articles = list(collection.find())
+    # Find only articles that do not have a 'summary' field yet
+    articles = list(collection.find({ 'summary': { '$exists': False } }))
     num_articles = len(articles)
     num_batches = (num_articles - 1) // BATCH_SIZE + 1
 
     print(f"Processing {num_articles} articles in {num_batches} batches")
 
     # Create a ThreadPool for multithreading
-    with ThreadPool(4) as pool:
+    with ThreadPool(12) as pool:
         for batch_num in range(num_batches):
             start_index = batch_num * BATCH_SIZE
             end_index = min(start_index + BATCH_SIZE, num_articles)
