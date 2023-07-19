@@ -34,11 +34,12 @@ all_trends = google_trends + bing_trends
 nlp = spacy.load("en_core_web_lg")
 
 # Extract named entities from all trends/headlines
-entities = []
+entities = set()  # Use a set to automatically remove duplicates
 for trend in all_trends:
     doc = nlp(trend)
-    entities.extend([ent.text for ent in doc.ents if ent.label_ != ""])
+    entities.update((ent.text, ent.label_) for ent in doc.ents if ent.label_ not in {"", "TIME", "CARDINAL", "MONEY"})
 
 # Print the array of named entities
 print("Named entities:")
-print(entities)
+for entity, entity_type in entities:
+    print(f"{entity} ({entity_type})")

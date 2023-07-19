@@ -16,6 +16,31 @@ domains = [
 ]
 domains_copy = copy.deepcopy(domains)
 
+ranks = {
+    "bbc": 9,
+    "billboard": 6,
+    "cnet": 8,
+    "cbsnews": 6,
+    "futurism": 7,
+    "gizmodo": 7,
+    "forbes": 8,
+    "ibtimes": 6,
+    "nasa": 7,
+    "npr": 9,
+    "nytimes": 10,
+    "pcgamer": 8,
+    "propublica": 10,
+    "reutersagency": 9,
+    "techcrunch": 9,
+    "theverge": 7,
+    "time": 9,
+    "thurrott": 6,
+    "universetoday": 7,
+    "wired": 8,
+    "wsj": 10,
+    "yahoo": 4,
+}
+
 async def fetch_news_data(session, url):
     async with session.get(url) as resp:
         data = await resp.text()
@@ -37,6 +62,7 @@ async def process_articles(data, article_array):
             if article['source_id'] == "ibtimes":
                 article['content'] = clean_text_ibtimes(article['content'])
 
+            rank = ranks.get(article['source_id'].lower(), 0)
             article_object = {
                 'pubDate': article['pubDate'],
                 'title': article['title'],
@@ -49,6 +75,7 @@ async def process_articles(data, article_array):
                 'source_id': article['source_id'],
                 'language': article['language'],
                 'description': article['description'],
+                'rank': rank
             }
 
             article_array.append(article_object)
@@ -78,3 +105,4 @@ async def get_news_data():
 
 loop = asyncio.get_event_loop()
 results = loop.run_until_complete(get_news_data())
+print(results)
