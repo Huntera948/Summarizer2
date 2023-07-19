@@ -29,7 +29,7 @@ ranks = {
     "yahoo": 4,
 }
 
-def updateArticlesWithRank():
+def pubRanker():
     try:
         print("Starting the script...")
 
@@ -70,4 +70,4 @@ def updateArticlesWithRank():
         print("Error:", e)
 
 # Call the function to start the script
-updateArticlesWithRank()
+pubRanker()

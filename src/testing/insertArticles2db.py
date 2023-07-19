@@ -35,6 +35,3 @@ def insert_articles(articles):
         # Close the connection
         client.close()
         print("MongoDB connection closed")
-
-# Assuming 'articles' is a list of article documents
-# insert_articles(articles)
