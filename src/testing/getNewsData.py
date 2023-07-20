@@ -5,6 +5,7 @@ import copy
 
 from insertArticles2db import insert_articles
 from text_cleanup.text_cleanup_ibtimes import clean_text_ibtimes
+from NER import perform_ner_extraction
 
 apiKey = "pub_2529453bb1703552da9694fe294be8dd033c3"
 domains = [
@@ -98,7 +99,9 @@ async def get_news_data():
             articles = await fetch_and_process(session, domain)
             all_articles.extend(articles)
         if all_articles:
-            loop.run_in_executor(None, insert_articles, all_articles)
+            insert_articles(all_articles)  # Call insert_articles directly without run_in_executor
+            extracted_entities = await perform_ner_extraction(all_articles)  # Perform NER extraction on inserted articles
+            print(extracted_entities)  # Print or process the extracted entities as desired
         else:
             print("No articles to insert")
         return all_articles

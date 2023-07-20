@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from transformers import BartTokenizer, BartForConditionalGeneration
 from multiprocessing.pool import ThreadPool
 
-# Initialize the model and tokenizer
+# Initialize the model and tokenizer for use with CUDA
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = BartForConditionalGeneration.from_pretrained('sshleifer/distilbart-xsum-12-6').to(device)
 tokenizer = BartTokenizer.from_pretrained('sshleifer/distilbart-xsum-12-6')

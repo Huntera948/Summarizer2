@@ -37,7 +37,7 @@ nlp = spacy.load("en_core_web_lg")
 entities = set()  # Use a set to automatically remove duplicates
 for trend in all_trends:
     doc = nlp(trend)
-    entities.update((ent.text, ent.label_) for ent in doc.ents if ent.label_ not in {"", "TIME", "CARDINAL", "MONEY"})
+    entities.update((ent.text, ent.label_) for ent in doc.ents if ent.label_ not in {"", "TIME", "CARDINAL", "MONEY", "DATE", "ORDINAL", "NORP"})
 
 # Print the array of named entities
 print("Named entities:")
