@@ -100,7 +100,7 @@ async def get_news_data():
             all_articles.extend(articles)
         if all_articles:
             insert_articles(all_articles)  # Call insert_articles directly without run_in_executor
-            extracted_entities = await perform_ner_extraction(all_articles)  # Perform NER extraction on inserted articles
+            extracted_entities = perform_ner_extraction(all_articles)  # Perform NER extraction on inserted articles
             print(extracted_entities)  # Print or process the extracted entities as desired
         else:
             print("No articles to insert")

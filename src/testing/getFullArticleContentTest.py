@@ -1,7 +1,7 @@
 from newspaper import Article
 
 # URL of the article you want to extract
-url = 'https://www.billboard.com/culture/product-recommendations/bose-noise-cancelling-headphones-deal-9590493/'
+url = 'https://www.nytimes.com/live/2023/07/24/world/israel-protests-vote'
 
 # Create an Article object and pass the URL
 article = Article(url)

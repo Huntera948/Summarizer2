@@ -14,7 +14,7 @@ BATCH_SIZE = 16
 # Function to summarize text
 def summarize_text(text):
     inputs = tokenizer.encode("summarize: " + text, return_tensors='pt', max_length=1024, truncation=True).to(device)
-    outputs = model.generate(inputs, max_length=150, min_length=40, length_penalty=2.0, num_beams=4, early_stopping=True)
+    outputs = model.generate(inputs, max_length=400, min_length=200, length_penalty=2.0, num_beams=4, early_stopping=True)
     return tokenizer.decode(outputs[0], skip_special_tokens=True)  # skip special tokens during decoding
 
 def fetch_and_process_articles():
